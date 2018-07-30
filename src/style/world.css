@@ -1,0 +1,84 @@
+html,
+body,
+div#react-container,
+div.App {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+i{
+    font-style: normal;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#queryForm {
+    margin-top: 10rem;
+}
+
+#queryText{
+    margin-right:1rem;
+}
+
+.MusicList {
+    margin-top: 2rem;
+    width: 45rem;
+    height: 20rem;
+}
+
+.MusicTable {
+    border: thin solid red;
+    border-spacing: 0;
+    width: 45rem;
+}
+
+.MusicTable th {
+    border: gray thin solid;
+}
+
+.MusicTable thead {
+    background-color: lightblue;
+}
+
+/* tbody tr:nth-of-type(even){
+    background-color: rgb(240,240,240);
+} */
+
+tbody tr.Hovered {
+    /* background-color: rgb(200,200,200); */
+    background-color: antiquewhite;
+}
+
+tbody tr.Focused {
+    background-color: antiquewhite;
+}
+
+.MusicTable th {
+    padding: 0.3rem 0.6rem;
+    text-align: left;
+    vertical-align: center;
+    font-size: 1rem;
+    font-family: cursive;
+}
+
+.MusicTable td {
+    padding: 0.3rem 0.9rem;
+    text-align: left;
+    vertical-align: center;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    border-bottom: gray thin solid;
+}

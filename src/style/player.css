@@ -1,0 +1,165 @@
+.Player{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+    /* border-radius: 2rem; */
+    color:white;
+    height:4rem;
+    width:100%;
+    margin-top: auto;
+}
+
+.Player .PlayerSwitch{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    width:4rem;
+    height:2rem;
+    border-radius:1rem;
+    margin-right:2rem;
+    cursor: pointer;
+    background-color: indianred;
+}
+
+.Player .ChangeBox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Player .Volume{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    width:5rem;
+    height:2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color:indianred;
+}
+
+.Player .Volume .VolumeControl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    left:-999rem;
+    top:-99rem;
+    width:2rem;
+    height:6rem;
+    background-color: indianred;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+}
+
+.Player .Volume:hover .VolumeControl{
+    left:1rem;
+    top:-6rem;
+}
+
+.VolumeControl .VolumeBaseBar{
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    background-color:red;
+    width:0.5rem;
+    height:5rem;
+}
+
+.VolumeProgressBar{
+    position: absolute;
+    background-color:lightgray;
+    width:100%;
+    height:70%;
+}
+
+.VolumeSlider{
+    position: absolute;
+    top:69%;
+
+    width: 1rem;
+    height:1rem;
+    border-radius: 50%;
+    background-color: lightsalmon;
+}
+
+.ProgressControl,.BaseBar{
+    display: flex;
+    align-items: center;
+
+    position:relative;
+    margin-right:2rem;
+    height:1.2rem;
+    width:40rem;
+}
+
+.ProgressControl > .BaseBar{
+    cursor: pointer;
+    position:relative;
+    width:100%;
+    height:50%;
+    border-radius:0.3rem; 
+    background-color: lightgray;
+}
+
+.BaseBar > .CacheBar{
+    position: absolute;
+    z-index:1;
+    max-width:100%;
+    height:100%;
+    border-radius:0.3rem;
+    background-color:gray;
+    width:0%
+}
+
+.BaseBar > .ProgressBar{
+    position: absolute;
+    z-index:10;
+    max-width:100%;
+    height:100%;
+    border-radius:0.3rem;
+    background-color:red;
+    width:0%;
+}
+
+.BaseBar > .Slider{
+    cursor: pointer;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    z-index:100;
+    left:-1%;
+    width:1.2rem;
+    height:1.2rem;
+    border-radius: 50%;
+    background-color: lightsalmon;
+}
+
+.ProgressControl > .Slider > span{
+    display: inline-block;
+    width:40%;
+    height:40%;
+    border-radius:50%;
+    background-color: red;
+}
+
+.TimeInfo{
+    display: flex;
+
+    width:6rem;
+    margin-right:2rem;
+}
+
+.TimeInfo .CurrentTime{
+    font-style: normal;
+    font-weight: bold;
+}
