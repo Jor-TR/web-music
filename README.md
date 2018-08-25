@@ -17,7 +17,7 @@
   -- 0003.mp3 ... ...
 ```
 * web-music-server.js ( 需修改MySQL的登录信息 )
-```
+```js
 /* 开启后端API服务的NodeJS代码 */
 
 const mysql = require("mysql");
