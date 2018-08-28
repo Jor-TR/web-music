@@ -8,18 +8,11 @@ export class PlayButton extends React.Component {
         this.onclick = this.onclick.bind(this);
     }
 
-    static propTypes = {
-
-    }
-
-    static defaultProps = {
-
-    }
-
     static contextTypes = {
         store: PropTypes.object,
     }
 
+    // 点击播放/暂停键时向Redux发出播放/暂停请求
     onclick() {
         const controlsState = this.context.store.getState().playerState.controlsState,
             switchIsOn = controlsState.switchIsOn,

@@ -1,29 +1,32 @@
 import { actionTypes } from "./actions.js";
     
 export const initialState={
+
+    // 音乐列表状态
     listState:{
-        list:[],
-        toplayIndex:null,
-        playingIndex:null,
-        pausedIndex:null,
-        focusedIndex:null,
-        hoveredIndex:null,
+        list:[], // 音乐列表
+        toplayIndex:null, // 即将播放/播放/暂停 中的音乐所处的条目的下标(从0开始计)
+        playingIndex:null, // 播放标志所处的条目的下标
+        pausedIndex:null, // 暂停标志所处的条目的下标
+        focusedIndex:null, // 聚焦的条目的下标
+        hoveredIndex:null, // 光标悬浮在其上的条目的下标
     },
 
+    // 播放器状态
     playerState: {
         controlsState:{
-            switchIsOn: false,
-            currentTime: 0,
-            currentCache: 0,
-            duration: 0,
-            volume: 0.5,
+            switchIsOn: false, // 播放控件是否开启
+            currentTime: 0, // 当前播放进度
+            currentCache: 0, // 当前缓冲进度
+            duration: 0, // 播放总时长
+            volume: 0.5, // 音量
         },
         audioState: {
-            src: "",
-            canPlay: false,
-            isPlaying: false,
-            forcedCurrentTime: null,
-            volume: 0.5,
+            src: "", // 当前指向的资源路径
+            canPlay: false,  // 当前资源是否有效
+            isPlaying: false, // 是否正在播放
+            forcedCurrentTime: null, // 是否收到一个进度跳转的动作。如果没有，或者已经执行完这个动作，置为null
+            volume: 0.5, // 实际音量
         }
     }
 };

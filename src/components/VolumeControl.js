@@ -9,18 +9,11 @@ export class VolumeControl extends React.Component {
         this.onmousedown = this.onmousedown.bind(this);
     }
 
-    static propTypes = {
-
-    }
-
-    static defaultProps = {
-
-    }
-
     static contextTypes={
         store:PropTypes.object,
     }
 
+    // 如果在有效范围内点击音量条，将对Redux发起改变音量的请求
     onmousedown(event) {
         const _volumeBaseBar = this.refs._volumeBaseBar,
             store = this.context.store;

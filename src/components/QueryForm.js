@@ -10,14 +10,6 @@ export class QueryForm extends React.Component {
         this.onsubmit = this.onsubmit.bind(this);
     }
 
-    static propTypes = {
-
-    }
-
-    static defaultProps = {
-
-    }
-
     static contextTypes={
         store:PropTypes.object,
     }
@@ -58,6 +50,8 @@ export class QueryForm extends React.Component {
                 }, () => {
                     throw new Error("updateMusicList: something wrong");
                 });
+            }else{
+                throw new Error("收到了异常的响应");
             }
             xhr.onload = null;
             xhr.onerror = null;
@@ -65,7 +59,7 @@ export class QueryForm extends React.Component {
         xhr.onerror = () => {
             xhr.onload = null;
             xhr.onerror = null;
-            throw new Error(xhr.responseText);
+            throw new Error("XHR查询音乐搜索结果时出错");
         };
         const querystr = "?" + encodeURIComponent(serverConfig.musicListQueryName) + "=" + encodeURIComponent(this.refs._queryText.value);
         xhr.open(serverConfig.musicListMethod, serverConfig.musicListPath + querystr, true);

@@ -9,19 +9,11 @@ export class ProgressControl extends React.Component {
         this.onmousedown=this.onmousedown.bind(this);
     }
 
-    static propTypes = {
-
-    }
-
-    static defaultProps = {
-
-    }
-
     static contextTypes={
         store:PropTypes.object,
     }
 
-    // 点击进度条事件
+    // 点击进度条事件,触发后向Redux发起进度跳转请求
     onmousedown(event){
         const _baseBar=this.refs._baseBar,
             store=this.context.store;

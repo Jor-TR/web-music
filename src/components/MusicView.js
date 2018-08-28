@@ -13,14 +13,6 @@ export class MusicView extends React.Component {
         this.onmouseout=this.onmouseout.bind(this);
     }
 
-    static propTypes = {
-
-    }
-
-    static defaultProps = {
-
-    }
-
     static contextTypes={
         store:PropTypes.object
     }

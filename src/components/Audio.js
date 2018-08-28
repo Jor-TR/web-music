@@ -15,24 +15,17 @@ export class Audio extends React.Component {
         this.onended=this.onended.bind(this);
     }
 
-    static propTypes = {
-
-    }
-
-    static defaultProps = {
-
-    }
-
     static contextTypes={
         store:PropTypes.object,
     }
 
+    // 不必更新Audio组件，因为它肉眼不可见
     shouldComponentUpdate(){
         this.updateAudio();
         return false;
     }
 
-    // 操控音频媒体
+    // 根据Redux状态改变音频元素
     updateAudio() {
         const _audio=this.refs._audio,
             store=this.context.store,
@@ -50,35 +43,38 @@ export class Audio extends React.Component {
             _audio.currentTime = audioState.forcedCurrentTime;
         }
         _audio.volume=audioState.volume;
-    };
+    }
 
-    // 如果成功接收到媒体文件，则允许播放
+    // 如果成功接收到媒体文件，则允许播放，并立即请求播放
     oncanplay() {
         const store = this.context.store;
         store.dispatch(actions.allowToPlay());
         store.dispatch(actions.play());
     }
 
-    // 播放过程中持续改变控件
+    // 如果开始播放了，就在播放过程中持续改变控件状态
     onplay() {
+        console.log("player played!");
         const _audio=this.refs._audio,
             store=this.context.store;
-        console.log("player played!");
         this.controller = funcs.setSafeInterval(() => {
             store.dispatch(actions.keepPlaying(_audio.currentTime,0, _audio.duration));
         }, appConfig.playerRepaintInterval);
     }
 
+    // 如果播放中暂停了，就要停止对控件状态的刷新
     onpause() {
         console.log("player paused or aborted!\n");
         funcs.clearSafeInterval(this.controller);
     }
 
+    // 如果播放完了自动发出暂停请求
     onended() {
         const { store } = this.context;
         store.dispatch(actions.pause());
     }
 
+    // 如果完成了进度跳转，则告知Redux，取消跳转状态
     onseeked() {
         const { store } = this.context;
         store.dispatch(actions.changeCurrentTime(null));

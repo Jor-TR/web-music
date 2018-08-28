@@ -53,13 +53,13 @@
     top:-99rem;
     width:2rem;
     height:6rem;
-    background-color: indianred;
+    background-color: slateblue;
     border-top-right-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
 }
 
 .Player .Volume:hover .VolumeControl{
-    left:1rem;
+    left:1.3rem;
     top:-6rem;
 }
 
